@@ -18,7 +18,7 @@
   "homepage": "https://github.com/FlowStateStudio/flow-home",
   "dependencies": {
     "lodash": "^3.9.3",
-    "material-ui": "^0.9.1",
+    "material-ui": "latest",
     "react": "^0.13.3",
     "react-tap-event-plugin": "^0.1.7"
   },

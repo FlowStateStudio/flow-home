@@ -49,14 +49,18 @@ gulp.task('vendor', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('static', function() {
+  gulp.src('static/**/*')
+    .pipe(gulp.dest('dist'));
+});
 
 gulp.task('assets', function() {
   gulp.src('src/index.html')
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch('src/**/*.*', ['build']);
+gulp.task('watch', ['default'], function() {
+  gulp.watch('src/**/*.*', ['default']);
 });
 
-gulp.task('default', ['build', 'assets']);
+gulp.task('default', ['build', 'assets', 'static']);

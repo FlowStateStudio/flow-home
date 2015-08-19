@@ -23,30 +23,22 @@ export default React.createClass({
   },
   _menuItems() {
     return [
-      { route: 'get-started', text: 'Get Started' },
-      { route: 'customization', text: 'Customization' },
-      { route: 'components', text: 'Components' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Resources' },
       {
+        route: 'get-started',
+        text: 'About' },
+      {
+        text: 'Blog',
         type: MenuItem.Types.LINK,
-        payload: 'https://github.com/callemall/material-ui',
-        text: 'GitHub'
-      },
-      {
-        text: 'Disabled',
-        disabled: true
-      },
-      {
-        type: MenuItem.Types.LINK,
-        payload: 'https://www.google.com',
-        text: 'Disabled Link',
-        disabled: true
+        payload: 'http://blog.flowstate.io'
       }
     ];
   },
   render() {
-    return <AppCanvas>
-            <AppBar title="Title"
+    return <AppCanvas
+              style={{
+                backgroundImage: 'url(/imgs/flowLogo.png)'
+              }}>
+            <AppBar title="FlowState Studios"
                     onLeftIconButtonTouchTap={this._iconTouchHandler}
               />
             <LeftNav ref="LeftNav"
