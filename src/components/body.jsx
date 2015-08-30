@@ -3,13 +3,22 @@
  */
 import React from 'react';
 import mui from 'material-ui';
-let ThemeManager = new mui.Styles.ThemeManager();
-let AppBar = mui.AppBar;
-let AppCanvas = mui.AppCanvas;
-let MenuItem = mui.MenuItem;
-let LeftNav = mui.LeftNav;
+import Router from 'react-router';
+import {Navigation} from 'react-router';
+
+const RouteHandler = Router.RouteHandler;
+
+
+const ThemeManager = new mui.Styles.ThemeManager();
+const AppBar = mui.AppBar;
+const AppCanvas = mui.AppCanvas;
+const MenuItem = mui.MenuItem;
+const LeftNav = mui.LeftNav;
+
+
 
 export default React.createClass({
+  mixins: [Navigation],
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
@@ -24,8 +33,15 @@ export default React.createClass({
   _menuItems() {
     return [
       {
-        route: 'get-started',
-        text: 'About' },
+        text: 'Home',
+        type: MenuItem.Types.LIGHT,
+        payload: '/'
+      },
+      {
+        text: 'About',
+        type: MenuItem.Types.LIGHT,
+        payload: 'about'
+      },
       {
         text: 'Blog',
         type: MenuItem.Types.LINK,
@@ -34,18 +50,19 @@ export default React.createClass({
     ];
   },
   render() {
-    return <AppCanvas
-              style={{
-                backgroundImage: 'url(/imgs/flowLogo.png)'
-              }}>
-            <AppBar title="FlowState Studios"
+    return <AppCanvas>
+              <AppBar title="FlowState Studios"
                     onLeftIconButtonTouchTap={this._iconTouchHandler}
               />
-            <LeftNav ref="LeftNav"
+              <LeftNav ref="LeftNav"
                      menuItems={this._menuItems()}
                      docked={false}
+                     onChange={(e, key, selected) => {
+                      this.transitionTo(selected.payload);
+                     }}
                      isInitiallyOpen="false"
               />
-          </AppCanvas>;
+            <RouteHandler/>
+    </AppCanvas>;
   }
 });
