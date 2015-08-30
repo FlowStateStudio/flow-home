@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FlowStateStudio/flow-home",
   "dependencies": {
+    "curved-carousel": "0.0.1",
     "lodash": "^3.9.3",
     "material-ui": "latest",
     "react": "^0.13.3",

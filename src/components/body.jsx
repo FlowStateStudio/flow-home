@@ -35,7 +35,7 @@ export default React.createClass({
       {
         text: 'Home',
         type: MenuItem.Types.LIGHT,
-        payload: '/'
+        payload: 'home'
       },
       {
         text: 'About',

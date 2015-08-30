@@ -10,7 +10,7 @@ var del = require('del');
 var _ = require('lodash');
 var libs = _.keys(require('./package.json').dependencies);
 
-gulp.task('build', ['clean', 'app', 'vendor' ], function () {
+gulp.task('build', ['app', 'vendor' ], function () {
   console.log( libs );
 });
 
