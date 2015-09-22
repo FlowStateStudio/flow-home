@@ -11,7 +11,6 @@ import About from './components/about'
 
 const Route = Router.Route;
 
-
 //Needed for onTouchTap
 //Can go away when react 1.0 release
 //Check this repo:

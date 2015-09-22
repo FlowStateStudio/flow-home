@@ -15,7 +15,13 @@ const AppCanvas = mui.AppCanvas;
 const MenuItem = mui.MenuItem;
 const LeftNav = mui.LeftNav;
 
+const appBarStyle = {
+  backgroundColor:`#2240A0`
+}
 
+const appCanvasStyle = {
+  backgroundColor:`#2240A0`
+}
 
 export default React.createClass({
   mixins: [Navigation],
@@ -50,9 +56,10 @@ export default React.createClass({
     ];
   },
   render() {
-    return <AppCanvas>
+    return <AppCanvas style={appCanvasStyle}>
               <AppBar title="FlowState Studios"
-                    onLeftIconButtonTouchTap={this._iconTouchHandler}
+                      style={appBarStyle}
+                      onLeftIconButtonTouchTap={this._iconTouchHandler}
               />
               <LeftNav ref="LeftNav"
                      menuItems={this._menuItems()}

@@ -19,27 +19,31 @@ const logos = [
   'webpack'
 ];
 
-const divStyle = {
+const pageStyle = {
   backgroundImage: 'url(imgs/flowLogo.png)',
+  backgroundRepeat: 'no-repeat',
+  backgroundPositionX: '50%',
   height: '100%',
   width: '100%'
 };
 
+const carouselStyle = {
+  bottom: 0,
+  paddingTop: 100,
+  height: 500
+};
+
 export default React.createClass({
   render() {
-    return <div style={divStyle}>
+    return <div style={pageStyle}>
       <CurvedCarousel
         childWidth={150}
-        style={{ paddingTop: 100, height: 500 }}
+        style={carouselStyle}
         rotation={true}
         friction={0}
         curve={25}
         spacing={0}>
-        {
-          _.map(logos, (logo) => {
-            return <img src={"imgs/carousel/" + logo + ".png"} />
-          })
-        }
+        {_.map(logos,(logo)=>{return <img src={"imgs/carousel/"+logo+".png"}/>})}
       </CurvedCarousel>
     </div>
   }
